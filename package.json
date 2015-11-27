@@ -11,13 +11,12 @@
     "type": "git",
     "url": "https://github.com/limajs/cubdi-redux.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Simon Crabtree",
   "bugs": {
     "url": "https://github.com/limajs/cubdi-redux/issues"
   },
   "homepage": "https://github.com/limajs/cubdi-redux",
-    "dependencies": {
+  "dependencies": {
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-redux": "^4.0.0",
