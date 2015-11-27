@@ -1,34 +1,30 @@
-var path = require("path");  
-var webpack = require('webpack');
+var path = require('path')
+var webpack = require('webpack')
 
-module.exports = {  
- entry: [
-   'webpack-dev-server/client?http://localhost:3000',
-   'webpack/hot/only-dev-server',
-   './src/index.jsx'
- ],
- module: {
-   loaders: [{
-     test: /\.jsx?$/,
-     exclude: /node-modules/,
-     include: path.join(__dirname, "src"),
-     loader: 'react-hot!babel'
-   }]
- },
- resolve: {
-   extensions: ['', '.js', '.jsx']
- },
- output: {
-   path: __dirname + '/dist',
-   publicPath: '/',
-   filename: 'bundle.js'
- },
- devServer: {
-  contentBase: './dist',
-  hot: true,
-  port:3000
- },
- plugins: [
-   new webpack.HotModuleReplacementPlugin()
- ]
-};
+module.exports = {
+  devtool: 'cheap-module-eval-source-map',
+  entry: [
+    'webpack-hot-middleware/client',
+    './index'
+  ],
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: '/static/'
+  },
+  plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ],
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        loaders: [ 'babel' ],
+        exclude: /node_modules/,
+        include: __dirname
+      }
+    ]
+  }
+}
