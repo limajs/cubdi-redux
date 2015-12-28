@@ -1,6 +1,9 @@
 {
     "ecmaFeatures": {
+      "arrowFunctions": true,
       "blockBindings": true,
+      "defaultParams": true,
+      "destructuring": true,
       "jsx": true,
       "modules": true,
     }
